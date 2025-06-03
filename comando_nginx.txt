@@ -1,0 +1,1 @@
+Copy-Item -Path nginx_tmp.txt -Destination .\nginx\conf.d\nginx.conf -Force

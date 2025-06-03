@@ -1,0 +1,8 @@
+[server]
+fileWatcherType = "none"
+
+# Optional: Other recommended settings for performance
+runOnSave = false
+headless = true
+enableCORS = false
+enableXsrfProtection = false

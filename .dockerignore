@@ -1,0 +1,41 @@
+# Ignore Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Ignore environment files
+.env
+.vscode/
+.idea/
+.git/
+
+# Ignore build-related files
+*.egg-info/
+build/
+dist/
+
+# Ignore logs and temporary files
+logs/
+*.log
+tmp/
+
+# Ignore Streamlit-generated cache (optional)
+.streamlit/
+
+# Ignore local dependencies (if using virtualenv)
+venv/
+venv_rag/
+rag_venv/
+*.venv/
+*.venv_rag
+*.rag_venv
+
+# Ignore Docker-related files (prevents copying itself)
+.dockerignore
+Dockerfile
+
+# Ignore dataset or large files (customize as needed)
+data/
+models/
+*.db

@@ -1,0 +1,44 @@
+# Use Python 3.12 as the base image
+FROM python:3.12
+
+# Install required system packages, including libGL for OpenCV and Tesseract
+RUN apt update && apt install -y \
+    tesseract-ocr \
+    tesseract-ocr-eng \
+    tesseract-ocr-por \
+    libgl1-mesa-glx \
+    wget \
+    && rm -rf /var/lib/apt/lists/*
+
+# Remove any previous tessdata directory (force a clean installation)
+RUN rm -rf /usr/share/tesseract-ocr/4.00/tessdata
+
+# Create the tessdata directory and set correct permissions
+RUN mkdir -p /usr/share/tesseract-ocr/4.00/tessdata \
+    && chmod -R 755 /usr/share/tesseract-ocr/4.00/tessdata
+
+# Download the language files from the correct raw GitHub URLs
+RUN wget https://raw.githubusercontent.com/tesseract-ocr/tessdata/main/eng.traineddata -O /usr/share/tesseract-ocr/4.00/tessdata/eng.traineddata \
+    && wget https://raw.githubusercontent.com/tesseract-ocr/tessdata/main/por.traineddata -O /usr/share/tesseract-ocr/4.00/tessdata/por.traineddata
+
+# Set the TESSDATA_PREFIX environment variable
+ENV TESSDATA_PREFIX=/usr/share/tesseract-ocr/4.00/
+
+# Set working directory to /app/src
+WORKDIR /app/src
+
+# Copy requirements and install dependencies
+COPY requirements.txt /app/requirements.txt
+RUN pip install --no-cache-dir -r /app/requirements.txt
+
+# Copy the full project
+COPY . /app
+
+# Run flake8
+RUN flake8 .
+
+# Expose Streamlit port
+EXPOSE 8501
+
+# Command: run from inside /app/src
+CMD ["streamlit", "run", "Home.py", "--server.port=8501", "--server.address=0.0.0.0"]

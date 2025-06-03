@@ -1,0 +1,24 @@
+Model:
+  key: sk-proj-...
+  embedding: sentence-transformers/all-MiniLM-L6-v2
+  model_name: gpt-4o-mini
+  max_word_count_kb: 15000
+  chunk_size: 3000
+  chunk_overlap: 200
+  similarity_threshold: 1.15
+  MAX_DOCS: 5
+
+Sharepoint:
+  TENANT_ID: ...
+  CLIENT_ID: ...
+  CLIENT_SECRET: ...
+  URL_PATH: ...
+
+ADMIN:
+  admin: admin123
+  secret: bNNHqYhH3vT32FiQFRq3XoL_LebmigyGhmJko1rTdJI=
+
+OPTIONS:
+  delete_files: False
+  debug: False
+  flag_audio: True

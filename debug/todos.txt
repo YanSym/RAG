@@ -1,0 +1,20 @@
+O que vamos fazer?
+
+Automatizar encontrar as pessoas no Linkedin, mandar mensagem, o que?
+Vale a pena automatizar isso num front? -> Parte manual
+Banco Dados -> Gastar pra ter um armazenamento <- pegar leads
+Front?
+
+Front: "Desenvolver Java Londrina" -> url ...processar tudo -> report
+Tela: -> Mensagem automático
+
+100 -> Mensagem ()
+
+Ana Paula | Sheyla
+
+Anderson Ayres
+
+Unificar Linkedin, Quickin, GeekHunter
+Entrevista técnica (gargalo)
+Pipeline de automação
+
